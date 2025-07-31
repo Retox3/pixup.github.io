@@ -231,6 +231,16 @@
             text-decoration: underline;
         }
 
+        /* Added style for post timestamp */
+        .post .post-time {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        body.dark .post .post-time {
+            color: #bbb;
+        }
+
         .post .content {
             font-size: 1em;
             line-height: 1.6;
@@ -552,7 +562,7 @@
         let authMode = 'login'; // 'login' or 'signup'
 
         // Base URL for your Node.js server API
-        const API_BASE_URL = 'http://localhost:3000'; // FIX: Removed '/api' from base URL
+        const API_BASE_URL = 'https://862e3003-91e6-4c4a-8d02-e7e27801536a-00-191m9t5cbe5xr.picard.replit.dev/'; // FIX: Removed '/api' from base URL
 
         // --- Helper for showing custom messages/confirms ---
         function showMessage(message, type = 'alert', callback = null) {
@@ -908,6 +918,7 @@
 
                 el.innerHTML = `
                     <div class="username" onclick="filterByUser('${post.userId}')">${post.username}</div>
+                    <div class="post-time">${new Date(post.timestamp).toLocaleString()}</div>
                     <div class="content">${post.content}</div>
                     ${post.image ? `<img class="post-img" src="${post.image}" alt="Post Image">` : ''}
                     ${post.video ? `<video class="post-video" src="${post.video}" controls preload="metadata"></video>` : ''}
@@ -1230,8 +1241,8 @@
         <div class="create-post">
             <textarea id="postText" placeholder="What's on your mind, Anonymous?" required></textarea>
             <select id="emojiPicker">
-                <option value="">Select Emoji Ì†ΩÌ∏Ä</option>
-                <option value="Ì†ΩÌ∏Ä">Ì†ΩÌ∏Ä Grinning Face</option>
+                <option value="">Select Emoji Ì†ΩÌ±ã</option>
+                <option value="Ì†ΩÌ∏ä">Ì†ΩÌ∏ä Grinning Face</option>
                 <option value="Ì†ΩÌ∏Ç">Ì†ΩÌ∏Ç Face with Tears of Joy</option>
                 <option value="Ì†ΩÌ∏ç">Ì†ΩÌ∏ç Smiling Face with Heart-Eyes</option>
                 <option value="Ì†ΩÌ∏é">Ì†ΩÌ∏é Smiling Face with Sunglasses</option>
@@ -1240,6 +1251,7 @@
                 <option value="Ì†ºÌΩÉ">Ì†ºÌΩÉ Leaf Fluttering in Wind</option>
                 <option value="Ì†ºÌΩî">Ì†ºÌΩî Hamburger</option>
                 <option value="Ì†ºÌΩï">Ì†ºÌΩï Pizza</option>
+                <option value="Ì†ΩÌ±ã">Ì†ΩÌ±ã Waving Hand</option>
             </select>
             <div id="mediaPreview" style="display: none;">
                 <img id="imagePreview" alt="Image preview" />
